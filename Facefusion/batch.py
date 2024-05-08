@@ -65,8 +65,8 @@ else:
 # Create worker threads
 threads = []
 exit_flag = [False]
-for _ in range(8):  # Maximum of threads
-    time.sleep(8)  # Delay creation of each worker 
+for _ in range(10):  # Maximum of threads
+    time.sleep(5)  # Delay creation of each worker 
     t = threading.Thread(target=worker)
     t.start()
     threads.append(t)
@@ -79,7 +79,7 @@ except KeyboardInterrupt:
 
 # Stop worker threads
 exit_flag[0] = True
-for _ in range(8):  # Maximum of threads
+for _ in range(10):  # Maximum of threads
     queue.put(None)
 
 for t in threads:
